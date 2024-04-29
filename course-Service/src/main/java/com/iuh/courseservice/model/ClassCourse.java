@@ -22,9 +22,9 @@ public class ClassCourse implements Serializable {
     private String nameClass;
 
     @OneToMany(mappedBy = "classcourse",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private Set<ClassCourseDetail> classcourseDetails;
+    private Set<ClassCourseDetail> classCourseDetails;
     @ManyToOne
     @JoinColumn(name = "course_id")
-    private Course courseid;
+    private Course courseId;
 
 }

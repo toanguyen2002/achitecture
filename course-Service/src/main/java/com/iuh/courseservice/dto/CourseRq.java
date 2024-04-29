@@ -17,7 +17,7 @@ import java.util.Set;
 public class CourseRq implements Serializable {
     public  long maMonHoc;
     public String tenMonHoc;
-    public boolean trangthai;
-    public boolean batbuoc;
+    public boolean trangThai;
+    public boolean batBuoc;
     public int soTinChi;
 }

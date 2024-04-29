@@ -18,8 +18,8 @@ import java.util.Set;
 public class Field implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int field_id;
-    public String field_name;
+    public int fieldId;
+    public String fieldName;
     @ManyToMany
     @JoinTable(
             name = "field_course",

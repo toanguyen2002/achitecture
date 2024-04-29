@@ -19,8 +19,8 @@ public class Course implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     public  long maMonHoc;
     public String tenMonHoc;
-    public boolean trangthai;
-    public boolean batbuoc;
+    public boolean trangThai;
+    public boolean batBuoc;
     public int soTinChi;
     @OneToMany(mappedBy = "courseid")
     public Set<ClassCourse> classCourses;

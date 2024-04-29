@@ -27,9 +27,10 @@ public class ClassCourseDetailService {
         return ClassCourseDetailRp.builder()
                 .idClassCourseDetail(courseDetail.getIdClassCourseDetail())
                 .timeEnd(courseDetail.getTimeEnd())
-                .timehoc(courseDetail.getTimehoc())
-                .siso(courseDetail.getSiso())
-                .soluongdadangky(courseDetail.getSoluongdadangky())
+                .timeHoc(courseDetail.getTimeHoc())
+                .siSo(courseDetail.getSiSo())
+                .ngayHoc(courseDetail.getNgayHoc())
+                .soLuongDaDangKy(courseDetail.getSoLuongDaDangKy())
                 .build();
     }
     public List<ClassCourseDetailRp> getAllClassCourseDetail(){
@@ -38,11 +39,11 @@ public class ClassCourseDetailService {
 
     public ClassCourseDetailRq addNewClassCourseDetail(ClassCourseDetailRq ClassCourseDetailRq){
         ClassCourseDetail rs = ClassCourseDetail.builder()
-                .ngayhoc(ClassCourseDetailRq.getNgayhoc())
-                .timehoc(ClassCourseDetailRq.getTimehoc())
+                .ngayHoc(ClassCourseDetailRq.getNgayHoc())
+                .timeHoc(ClassCourseDetailRq.getTimeHoc())
                 .timeEnd(ClassCourseDetailRq.getTimeEnd())
-                .siso(ClassCourseDetailRq.getSiso())
-                .soluongdadangky(ClassCourseDetailRq.getSoluongdadangky())
+                .siSo(ClassCourseDetailRq.getSiSo())
+                .soLuongDaDangKy(ClassCourseDetailRq.getSoLuongDaDangKy())
                 .lecturer(new Lecturer(ClassCourseDetailRq.getLecturer(), "", "", null))
                 .build();
         courseDetailRepo.save(rs);
@@ -55,11 +56,11 @@ public class ClassCourseDetailService {
             ClassCourseDetail classCourseDetail = optionalcourseDetail.get();
             ClassCourseDetailRp rs = ClassCourseDetailRp.builder()
                     .idClassCourseDetail(classCourseDetail.getIdClassCourseDetail())
-                    .idClassCourseDetail(classCourseDetail.getIdClassCourseDetail())
                     .timeEnd(classCourseDetail.getTimeEnd())
-                    .timehoc(classCourseDetail.getTimehoc())
-                    .siso(classCourseDetail.getSiso())
-                    .soluongdadangky(classCourseDetail.getSoluongdadangky())
+                    .timeHoc(classCourseDetail.getTimeHoc())
+                    .siSo(classCourseDetail.getSiSo())
+                    .soLuongDaDangKy(classCourseDetail.getSoLuongDaDangKy())
+                    .lecturer(classCourseDetail.getLecturer().getGiangVienid())
                     .build();
             return  rs;
         }

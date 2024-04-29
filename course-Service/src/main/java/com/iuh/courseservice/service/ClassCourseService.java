@@ -20,7 +20,7 @@ public class ClassCourseService {
     public ClassCourseRq addClassCourse(ClassCourseRq courseRq){
         ClassCourse course = ClassCourse.builder()
                 .nameClass(courseRq.getNameClass())
-                .courseid(new Course(courseRq.getCourseid(),"",false,false,0,null))
+                .courseId(new Course(courseRq.getCourseId(),"",false,false,0,null))
                 .build();
         classcourseRepo.save(course);
         return courseRq;

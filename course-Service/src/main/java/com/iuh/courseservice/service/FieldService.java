@@ -16,7 +16,7 @@ public class FieldService {
     public FieldRepo fieldRepo;
     public FieldRp mapEachOfList(Field field){
         return FieldRp.builder()
-                .field_name(field.getField_name())
+                .fieldName(field.getFieldName())
                 .build();
     }
 
@@ -25,7 +25,7 @@ public class FieldService {
     }
     public FieldRq addNewField(FieldRq fieldRq){
         Field field = Field.builder()
-                .field_name(fieldRq.getField_name())
+                .fieldName(fieldRq.getFieldName())
                 .build();
         fieldRepo.save(field);
         return  fieldRq;
@@ -35,7 +35,7 @@ public class FieldService {
         if (fieldOptional.isPresent()) {
             Field field = fieldOptional.get();
             FieldRp fieldRp = FieldRp.builder()
-                    .field_name(field.getField_name())
+                    .fieldName(field.getFieldName())
                     .build();
         }
         return null;

@@ -12,5 +12,5 @@ import java.io.Serializable;
 @NoArgsConstructor
 @ToString
 public class FieldRp implements Serializable {
-    public String field_name;
+    public String fieldName;
 }

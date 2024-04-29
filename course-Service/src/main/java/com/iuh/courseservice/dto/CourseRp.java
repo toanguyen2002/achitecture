@@ -13,7 +13,7 @@ import java.io.Serializable;
 @ToString
 public class CourseRp implements Serializable {
     public String tenMonHoc;
-    public boolean trangthai;
-    public boolean batbuoc;
+    public boolean trangThai;
+    public boolean batBuoc;
     public int soTinChi;
 }

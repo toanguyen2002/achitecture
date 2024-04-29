@@ -22,18 +22,18 @@ public class ClassCourseDetail implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idCourseDetail")
     private int idClassCourseDetail;
-    private String ngayhoc;
-    private LocalDateTime timehoc;
+    private String ngayHoc;
+    private LocalDateTime timeHoc;
     private LocalDateTime timeEnd;
-    private int siso;
-    private int soluongdadangky;
+    private int siSo;
+    private int soLuongDaDangKy;
     @ManyToOne
     @JoinColumn(name = "lecturer_id")
     private Lecturer lecturer;
 
     @ManyToOne
     @JoinColumn(name = "course_detail_id")
-    private ClassCourse classcourse;
+    private ClassCourse classCourse;
 
 
 }

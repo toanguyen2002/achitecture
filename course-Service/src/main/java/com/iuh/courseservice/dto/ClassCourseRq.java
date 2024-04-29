@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class ClassCourseRq implements Serializable {
     private int idClass;
     private String nameClass;
-    private int courseid;
+    private int courseId;
 
 
 }

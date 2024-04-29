@@ -29,8 +29,8 @@ public class CourseService {
         Course course = Course.builder()
                 .tenMonHoc(courserq.getTenMonHoc())
                 .soTinChi(courserq.getSoTinChi())
-                .trangthai(courserq.isTrangthai())
-                .batbuoc(courserq.isBatbuoc())
+                .trangThai(courserq.isTrangThai())
+                .batBuoc(courserq.isBatBuoc())
                 .build();
         courseRepo.save(course);
         return courserq;
@@ -50,8 +50,8 @@ public class CourseService {
                     .builder()
                     .tenMonHoc(course.getTenMonHoc())
                     .soTinChi(course.getSoTinChi())
-                    .trangthai(course.isTrangthai())
-                    .batbuoc(course.isBatbuoc())
+                    .trangThai(course.isTrangThai())
+                    .batBuoc(course.isBatBuoc())
                     .build();
         }
         return courseRp;
@@ -60,8 +60,8 @@ public class CourseService {
         return CourseRp.builder()
                 .tenMonHoc(course.getTenMonHoc())
                 .soTinChi(course.getSoTinChi())
-                .trangthai(course.isTrangthai())
-                .batbuoc(course.isBatbuoc())
+                .trangThai(course.isTrangThai())
+                .batBuoc(course.isBatBuoc())
                 .build();
     }
 

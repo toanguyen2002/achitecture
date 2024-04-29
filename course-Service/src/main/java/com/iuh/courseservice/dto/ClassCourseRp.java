@@ -12,7 +12,7 @@ import lombok.*;
 public class ClassCourseRp {
     private int idClass;
     private String nameClass;
-    private int courseid;
+    private int courseId;
 
 
 

@@ -14,11 +14,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @ToString
 public class ClassCourseDetailRq {
-    private String ngayhoc;
-    private LocalDateTime timehoc;
+    private String ngayHoc;
+    private LocalDateTime timeHoc;
     private LocalDateTime timeEnd;
-    private int siso;
-    private int soluongdadangky;
+    private int siSo;
+    private int soLuongDaDangKy;
     private int lecturer;
 
 }
