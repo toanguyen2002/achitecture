@@ -1,0 +1,27 @@
+package com.iuh.courseservice.model;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.io.Serializable;
+import java.util.Set;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Data
+@Entity
+@Builder
+@Table(name = "lecturer")
+public class Lecturer implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int giangVienid;
+    public String tenGiangVien;
+    public String chuyenNghanh;
+
+    @OneToMany(mappedBy = "lecturer")
+    public Set<ClassCourseDetail> classCourseDetail;
+}
