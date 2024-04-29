@@ -68,7 +68,11 @@ public class UserManageService {
                     .orElseThrow();
             String jwt = jwtUtils.generateToken(user);
             var refreshToken = jwtUtils.generateRefreshToken(new HashMap<>(),user);
-            reqRes.setUserName(user.getFullName());
+            reqRes.setAddress(user.getAddress());
+            reqRes.setRole(user.getRole());
+            reqRes.setLopHP(user.getLopHP());
+            reqRes.setFullname(user.getFullName());
+            reqRes.setGender(user.isGender());
             reqRes.setStatusCode(200);
             reqRes.setToken(jwt);
             reqRes.setRefreshToken(refreshToken);
@@ -92,6 +96,7 @@ public class UserManageService {
                     reqRes.setRefreshToken(refreshReqRes.getToken());
                     reqRes.setExpirationTime("24Hr");
                     reqRes.setMessage("refresh Token success");
+
                 }
             }catch (Exception e){
                 reqRes.setStatusCode(500);

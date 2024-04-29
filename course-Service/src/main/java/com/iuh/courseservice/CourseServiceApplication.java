@@ -15,31 +15,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-public class CourseServiceApplication implements CommandLineRunner{
+@EnableDiscoveryClient
+public class CourseServiceApplication {
 
     public static void main(String[] args) {
 
         SpringApplication.run(CourseServiceApplication.class, args);
     }
+}
 
-    @Autowired
-    public ClassCourseRepo classcourseRepo;
-    @Autowired
-    public ClassCourseService classcourseService;
-    @Override
-    public void run(String... args) throws Exception {
-        Faker faker = new Faker();
-        for (int i = 0; i < 5; i++) {
+//    @Autowired
+//    public CourseRepo courseRepo;
+//    @Autowired
+//    public ClassCourseService classcourseService;
+//    @Override
+//    public void run(String... args) throws Exception {
+
+//        for (int i = 0; i < 5; i++) {
 //            classCourseRepo.save(new ClassCourse(i,"DHKTPM"+i+"TT",true,faker.number().numberBetween(1,3),null));
 //            classcourseService.addClassCourse(new ClassCourseRq(i,faker.name().name(),4));
 
-        }
-//        for (int i = 0; i < 10; i++) {
-//            courseRepo.save(new Course(i,faker.book().genre(),45,faker.number().numberBetween(2,3),true,null,null));
 //        }
-    }
+//        for (int i = 0; i < 10; i++) {
+//            Faker faker = new Faker();
+//            courseRepo.save(new Course(i,faker.book().genre(),true,true,faker.number().numberBetween(2,3),null));
+//        }
+//    }
 
 
-}
+//}

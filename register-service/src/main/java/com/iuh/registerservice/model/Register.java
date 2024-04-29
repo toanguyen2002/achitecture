@@ -15,10 +15,8 @@ public class Register {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String userName;
-
-    private int ClasscouserDetailId;
+    private int classCouserDetailId;
     private int hocKyDangKy;
-    private boolean trinhtrangMonHoc;
+    private boolean trinhTrangMonHoc;
 }

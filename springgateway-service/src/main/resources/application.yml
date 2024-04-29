@@ -8,15 +8,15 @@ spring:
             - Path=/api/**
           filters:
             - AuthFilter
-        - id: REGISTER-SERVICE
-          uri: http://localhost:9002
-          predicates:
-            - Path=/register/**
-          filters:
-            - AuthFilter
         - id: AUTH-SERVICE
           uri: http://localhost:9001
           predicates:
             - Path=/auth/**
+          filters:
+            - AuthFilter
+        - id: REGISTER-SERVICE
+          uri: http://localhost:9004
+          predicates:
+            - Path=/register/**
           filters:
             - AuthFilter

@@ -21,9 +21,11 @@ public class ReqRes {
     private String fullname;
     private boolean gender;
     private String lopHP;
+    private String email;
+    private String address;
+    private String role;
     private String password;
     private String city;
-    private String role;
     private User user;
     private List<User> listUser;
 }
