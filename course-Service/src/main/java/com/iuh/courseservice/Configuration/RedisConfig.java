@@ -14,7 +14,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 public class RedisConfig {
     @Bean
     public JedisConnectionFactory getConnectionFactory(){
-        return new JedisConnectionFactory();
+        JedisConnectionFactory jedis = new JedisConnectionFactory();
+        return jedis; 
     }
 
     @Bean

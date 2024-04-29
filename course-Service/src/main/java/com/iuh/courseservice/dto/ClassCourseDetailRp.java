@@ -15,6 +15,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @ToString
 public class ClassCourseDetailRp implements Serializable {
+    private static final long serialVersionUID = 297063413780202219L;
+
     private int idClassCourseDetail;
     private String ngayHoc;
     private LocalDateTime timeHoc;

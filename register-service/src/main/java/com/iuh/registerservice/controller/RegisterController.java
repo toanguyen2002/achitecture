@@ -14,7 +14,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/registerCourse")
+@RequestMapping("/register")
 public class RegisterController {
     @Autowired
     public RegisterService registerService;
@@ -33,6 +33,8 @@ public class RegisterController {
     }
     @PostMapping("/getRegister/{hocky}")
     public ResponseEntity<List<RegisterRqRp>> getCourseByUserNameAndHocKy(@RequestBody RegisterRqRp registerRqRp,@PathVariable int hocky){
+        System.out.println(registerRqRp);
+        System.out.println(hocky);
         return new ResponseEntity<>(registerService.getListRegisterByUserNameAndHocKyDangKy(registerRqRp.getUserName(),hocky), HttpStatus.OK);
     }
 }

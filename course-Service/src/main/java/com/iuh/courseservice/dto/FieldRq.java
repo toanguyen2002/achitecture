@@ -2,6 +2,8 @@ package com.iuh.courseservice.dto;
 
 import lombok.*;
 
+import java.io.Serializable;
+
 @Data
 @Setter
 @Getter
@@ -9,7 +11,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class FieldRq {
+public class FieldRq implements Serializable {
     public int fieldId;
     public String fieldName;
 }
