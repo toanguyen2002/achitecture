@@ -36,9 +36,9 @@ public class CourseService {
         return courserq;
     }
     public List<CourseRp> getallCourse(){
-        List<CourseRp> list = courseRepo.findAll().stream().map(this::mapCopurseToCourseRespone).toList();
+        List<CourseRp> list = courseRepo.findAll().stream().map(this::mapCourseToCourseRespone).toList();
         System.out.println(list);
-        return courseRepo.findAll().stream().map(this::mapCopurseToCourseRespone).toList();
+        return courseRepo.findAll().stream().map(this::mapCourseToCourseRespone).toList();
     }
 
     public CourseRp getCourseById(long id){
@@ -56,7 +56,7 @@ public class CourseService {
         }
         return courseRp;
     }
-    public CourseRp mapCopurseToCourseRespone(Course course){
+    public CourseRp mapCourseToCourseRespone(Course course){
         return CourseRp.builder()
                 .tenMonHoc(course.getTenMonHoc())
                 .soTinChi(course.getSoTinChi())
