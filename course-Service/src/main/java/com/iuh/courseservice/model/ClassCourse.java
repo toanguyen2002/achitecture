@@ -20,7 +20,6 @@ public class ClassCourse implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idClass;
     private String nameClass;
-
     @OneToMany(mappedBy = "classcourse",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Set<ClassCourseDetail> classCourseDetails;
     @ManyToOne
