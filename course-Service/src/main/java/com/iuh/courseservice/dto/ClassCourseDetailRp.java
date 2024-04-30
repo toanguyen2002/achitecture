@@ -24,5 +24,6 @@ public class ClassCourseDetailRp implements Serializable {
     private int siSo;
     private int soLuongDaDangKy;
     private int lecturer;
+//    public int classCourse;
 
 }

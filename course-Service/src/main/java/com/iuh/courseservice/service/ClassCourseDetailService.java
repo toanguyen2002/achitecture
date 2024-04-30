@@ -31,10 +31,14 @@ public class ClassCourseDetailService {
                 .siSo(courseDetail.getSiSo())
                 .ngayHoc(courseDetail.getNgayHoc())
                 .soLuongDaDangKy(courseDetail.getSoLuongDaDangKy())
+                .lecturer(courseDetail.getLecturer().getGiangVienid())
                 .build();
     }
     public List<ClassCourseDetailRp> getAllClassCourseDetail(){
         return courseDetailRepo.findAll().stream().map(this::mapClassCourseDetailToClassCourseDetailRp).toList();
+    }
+    public List<ClassCourseDetailRp> getAllClassCourseDetailByClassCourse(ClassCourse classCourse){
+        return courseDetailRepo.findAllByClassCourse(classCourse).stream().map(this::mapClassCourseDetailToClassCourseDetailRp).toList();
     }
 
     public ClassCourseDetailRq addNewClassCourseDetail(ClassCourseDetailRq ClassCourseDetailRq){

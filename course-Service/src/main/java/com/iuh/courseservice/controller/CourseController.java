@@ -35,7 +35,7 @@ public class CourseController {
 
         return new ResponseEntity<>(rs, HttpStatus.OK);
     }
-    @GetMapping("/findall")
+    @GetMapping("/findAll")
     public ResponseEntity<List<CourseRp>> getAllCourse(@RequestHeader("loggedUser") String username){
         return new ResponseEntity<>(courseService.getallCourse(), HttpStatus.OK);
     }

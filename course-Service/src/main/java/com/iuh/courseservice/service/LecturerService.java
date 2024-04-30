@@ -17,6 +17,7 @@ public class LecturerService {
     public LecturerRepo lecturerRepo;
     public LecturerRp mapEachInList(Lecturer lecturer){
         return LecturerRp.builder()
+                .giangVienid(lecturer.getGiangVienid())
                 .tenGiangVien(lecturer.getTenGiangVien())
                 .chuyenNghanh(lecturer.getChuyenNghanh())
                 .build();

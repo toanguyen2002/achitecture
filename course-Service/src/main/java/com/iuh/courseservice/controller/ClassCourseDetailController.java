@@ -3,6 +3,7 @@ package com.iuh.courseservice.controller;
 import com.iuh.courseservice.dto.ClassCourseDetailRp;
 import com.iuh.courseservice.dto.ClassCourseDetailRq;
 import com.iuh.courseservice.dto.ClassCourseRq;
+import com.iuh.courseservice.model.ClassCourse;
 import com.iuh.courseservice.model.ClassCourseDetail;
 import com.iuh.courseservice.service.ClassCourseDetailService;
 import com.iuh.courseservice.service.ClassCourseService;
@@ -19,7 +20,7 @@ public class ClassCourseDetailController {
     @Autowired
     public ClassCourseDetailService classCourseDetailService;
 
-    @GetMapping("/findall")
+    @GetMapping("/findAll")
     public ResponseEntity<List<ClassCourseDetailRp>> getAllClassCourseDetailRp(){
         return new ResponseEntity<>(classCourseDetailService.getAllClassCourseDetail(),HttpStatus.OK);
     }
@@ -30,6 +31,10 @@ public class ClassCourseDetailController {
     @PostMapping("/add")
     public ResponseEntity<ClassCourseDetailRq> addclassCourseDetail(@RequestBody ClassCourseDetailRq classCourseDetailRq){
         return new ResponseEntity<>(classCourseDetailService.addNewClassCourseDetail(classCourseDetailRq),HttpStatus.OK);
+    }
+    @PostMapping("/findByClassCourse")
+    public ResponseEntity<List<ClassCourseDetailRp>> getClassCourseDetailRpByClassCourse(@RequestBody ClassCourse classCourse){
+        return new ResponseEntity<>(classCourseDetailService.getAllClassCourseDetailByClassCourse(classCourse),HttpStatus.OK);
     }
 
 }

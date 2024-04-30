@@ -19,7 +19,7 @@ public class FieldController {
     @Autowired
     public FieldService fieldService;
 
-    @GetMapping("/findall")
+    @GetMapping("/findAll")
     public ResponseEntity<List<FieldRp>> getAllFieldRp(){
         return new ResponseEntity<>(fieldService.getAllField(), HttpStatus.OK);
     }
