@@ -42,6 +42,10 @@ public class ClassCourseService {
         return classcourseRepo.findAll().stream().map(this::mapOneToOne).toList();
     }
 
+    public List<ClassCourseRp> findAllClassCourseByCourseId(Course course){
+        return classcourseRepo.findAllByCourseId(course).stream().map(this::mapOneToOne).toList();
+    }
+
     public ClassCourseRp mapOneToOne(ClassCourse classCourse){
        return ClassCourseRp.
                builder()

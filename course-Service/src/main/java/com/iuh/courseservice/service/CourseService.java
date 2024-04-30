@@ -48,6 +48,7 @@ public class CourseService {
             Course course = courseOptional.get();
             courseRp = CourseRp
                     .builder()
+                    .id(course.getMaMonHoc())
                     .tenMonHoc(course.getTenMonHoc())
                     .soTinChi(course.getSoTinChi())
                     .trangThai(course.isTrangThai())
@@ -58,6 +59,7 @@ public class CourseService {
     }
     public CourseRp mapCourseToCourseRespone(Course course){
         return CourseRp.builder()
+                .id(course.getMaMonHoc())
                 .tenMonHoc(course.getTenMonHoc())
                 .soTinChi(course.getSoTinChi())
                 .trangThai(course.isTrangThai())

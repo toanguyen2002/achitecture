@@ -13,7 +13,7 @@ import java.io.Serializable;
 @ToString
 public class CourseRp implements Serializable {
     private static final long serialVersionUID = 297063413780202219L;
-
+    public long id;
     public String tenMonHoc;
     public boolean trangThai;
     public boolean batBuoc;

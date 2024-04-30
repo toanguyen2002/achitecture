@@ -19,7 +19,7 @@ public class LectureController {
     @Autowired
     public LecturerService lecturerService;
 
-    @GetMapping("/findall")
+    @GetMapping("/findAll")
     public ResponseEntity<List<LecturerRp>> getAllFieldRp(){
         return new ResponseEntity<>(lecturerService.getAllLecturer(), HttpStatus.OK);
     }
