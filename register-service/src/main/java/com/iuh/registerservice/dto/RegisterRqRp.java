@@ -17,5 +17,6 @@ public class RegisterRqRp implements Serializable {
     private String userName;
     private int classCouserDetailId;
     private int hocKyDangKy;
+    private int couserId;
     private boolean trinhTrangMonHoc;
 }

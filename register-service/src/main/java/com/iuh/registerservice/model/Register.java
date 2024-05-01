@@ -17,6 +17,7 @@ public class Register {
     private int id;
     private String userName;
     private int classCouserDetailId;
+    private int couserId;
     private int hocKyDangKy;
     private boolean trinhTrangMonHoc;
 }
