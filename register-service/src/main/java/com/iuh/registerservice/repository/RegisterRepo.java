@@ -10,10 +10,7 @@ import java.util.List;
 public interface RegisterRepo extends JpaRepository<Register,Long> {
 
     public List<Register> findAllByUserName(String username);
-
     public  void deleteRegisterByUserNameAndClassCouserDetailId(String usename, int classCouserDetailId);
-
     public List<Register> findAllByHocKyDangKy(int hocKyDangKy);
-
     public List<Register> findAllByUserNameAndHocKyDangKy(String username,int hocKyDangKy);
 }

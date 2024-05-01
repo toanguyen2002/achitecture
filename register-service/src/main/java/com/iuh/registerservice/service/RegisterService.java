@@ -24,6 +24,7 @@ public class RegisterService {
     public RegisterRqRp mapOneToOneRegister(Register register){
         return RegisterRqRp.builder()
                 .userName(register.getUserName())
+                .couserId(register.getCouserId())
                 .hocKyDangKy(register.getHocKyDangKy())
                 .trinhTrangMonHoc(register.isTrinhTrangMonHoc())
                 .classCouserDetailId(register.getClassCouserDetailId())
@@ -32,6 +33,7 @@ public class RegisterService {
     public RegisterRqRp addNewRegister(RegisterRqRp registerRqRp){
         Register register = Register.builder()
                 .userName(registerRqRp.getUserName())
+                .couserId(registerRqRp.getCouserId())
                 .hocKyDangKy(registerRqRp.getHocKyDangKy())
                 .trinhTrangMonHoc(registerRqRp.isTrinhTrangMonHoc())
                 .classCouserDetailId(registerRqRp.getClassCouserDetailId())

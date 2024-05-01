@@ -27,14 +27,17 @@ public class RegisterController {
     public ResponseEntity<RegisterRqRp> removeRegister(@RequestBody RegisterRqRp registerRqRp){
         return new ResponseEntity<>(registerService.removeRegister(registerRqRp), HttpStatus.OK);
     }
-    @GetMapping("/getByUserName/{username}")
-    public ResponseEntity<List<RegisterRqRp>> getCourseByUserName(@PathVariable String username){
+    @GetMapping("/getByUserName")
+    public ResponseEntity<List<RegisterRqRp>> getCourseByUserName(@RequestHeader("loggedUser") String loggedUser){
+        System.out.println(loggedUser);
+        return new ResponseEntity<>(registerService.getListRegisterByUserName(loggedUser), HttpStatus.OK);
+    }
+    @GetMapping("/getAll")
+    public ResponseEntity<List<RegisterRqRp>> getAllRegister(@PathVariable String username){
         return new ResponseEntity<>(registerService.getListRegisterByUserName(username), HttpStatus.OK);
     }
-    @PostMapping("/getRegister/{hocky}")
-    public ResponseEntity<List<RegisterRqRp>> getCourseByUserNameAndHocKy(@RequestBody RegisterRqRp registerRqRp,@PathVariable int hocky){
-        System.out.println(registerRqRp);
-        System.out.println(hocky);
-        return new ResponseEntity<>(registerService.getListRegisterByUserNameAndHocKyDangKy(registerRqRp.getUserName(),hocky), HttpStatus.OK);
+    @GetMapping("/getRegister/{id}")
+    public ResponseEntity<List<RegisterRqRp>> getCourseByUserNameAndHocKy(@RequestHeader("loggedUser") String loggedUser,@PathVariable int id){
+        return new ResponseEntity<>(registerService.getListRegisterByUserNameAndHocKyDangKy(loggedUser,id), HttpStatus.OK);
     }
 }
