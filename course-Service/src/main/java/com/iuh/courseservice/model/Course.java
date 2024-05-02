@@ -22,6 +22,6 @@ public class Course implements Serializable {
     public boolean trangThai;
     public boolean batBuoc;
     public int soTinChi;
-    @OneToMany(mappedBy = "courseId")
+    @OneToMany(mappedBy = "courseId",cascade = CascadeType.ALL)
     public Set<ClassCourse> classCourses;
 }

@@ -22,6 +22,6 @@ public class Lecturer implements Serializable {
     public String tenGiangVien;
     public String chuyenNghanh;
 
-    @OneToMany(mappedBy = "lecturer")
+    @OneToMany(mappedBy = "lecturer",cascade = CascadeType.ALL)
     public Set<ClassCourseDetail> classCourseDetail;
 }
