@@ -1,11 +1,13 @@
 package com.iuh.courseservice.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Set;
 
 @Getter
@@ -23,15 +25,17 @@ public class ClassCourseDetail implements Serializable {
     @Column(name = "idCourseDetail")
     private int idClassCourseDetail;
     private String ngayHoc;
-    private LocalDateTime timeHoc;
-    private LocalDateTime timeEnd;
+//    @JsonFormat(timezone = "HH:mm:ss")
+    private LocalTime timeHoc;
+//    @JsonFormat(timezone = "HH:mm:ss")
+    private LocalTime timeEnd;
     private int siSo;
     private int soLuongDaDangKy;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "lecturer_id")
     private Lecturer lecturer;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "course_detail_id")
     private ClassCourse classCourse;
 

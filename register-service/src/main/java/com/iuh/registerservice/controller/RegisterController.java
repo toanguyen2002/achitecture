@@ -20,7 +20,8 @@ public class RegisterController {
     public RegisterService registerService;
 
     @PostMapping("/add")
-    public ResponseEntity<RegisterRqRp> addNewRegister(@RequestBody RegisterRqRp registerRqRp){
+    public ResponseEntity<RegisterRqRp> addNewRegister(@RequestBody RegisterRqRp registerRqRp,@RequestHeader("loggedUser") String loggedUser){
+        registerRqRp.setUserName(loggedUser);
         return new ResponseEntity<>(registerService.addNewRegister(registerRqRp), HttpStatus.OK);
     }
     @PostMapping("/delete")
