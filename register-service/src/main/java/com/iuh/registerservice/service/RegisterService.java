@@ -23,6 +23,7 @@ public class RegisterService {
     public EntityManager entityManager;
     public RegisterRqRp mapOneToOneRegister(Register register){
         return RegisterRqRp.builder()
+                .id(register.getId())
                 .userName(register.getUserName())
                 .couserId(register.getCouserId())
                 .hocKyDangKy(register.getHocKyDangKy())
@@ -32,6 +33,7 @@ public class RegisterService {
     }
     public RegisterRqRp addNewRegister(RegisterRqRp registerRqRp){
         Register register = Register.builder()
+                .id(registerRqRp.getId())
                 .userName(registerRqRp.getUserName())
                 .couserId(registerRqRp.getCouserId())
                 .hocKyDangKy(registerRqRp.getHocKyDangKy())
