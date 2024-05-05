@@ -37,7 +37,7 @@ public class CourseService {
     }
     public List<CourseRp> getallCourse(){
         List<CourseRp> list = courseRepo.findAll().stream().map(this::mapCourseToCourseRespone).toList();
-        System.out.println(list);
+//        System.out.println(list);
         return courseRepo.findAll().stream().map(this::mapCourseToCourseRespone).toList();
     }
 
@@ -64,6 +64,7 @@ public class CourseService {
                 .soTinChi(course.getSoTinChi())
                 .trangThai(course.isTrangThai())
                 .batBuoc(course.isBatBuoc())
+                .listCoursePrev(course.getListCoursePrev())
                 .build();
     }
 

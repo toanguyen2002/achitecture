@@ -40,4 +40,7 @@ public class ClassCourseDetail implements Serializable {
     private ClassCourse classCourse;
 
 
+
+
+
 }

@@ -24,4 +24,9 @@ public class Course implements Serializable {
     public int soTinChi;
     @OneToMany(mappedBy = "courseId",cascade = CascadeType.ALL)
     public Set<ClassCourse> classCourses;
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "course_prev", joinColumns=@JoinColumn(name="course_id"))
+    @Column(name = "course_prev")
+    private Set<Integer> listCoursePrev;
 }
