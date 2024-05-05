@@ -3,6 +3,7 @@ package com.iuh.courseservice.dto;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Data
 @Setter
@@ -18,4 +19,6 @@ public class CourseRp implements Serializable {
     public boolean trangThai;
     public boolean batBuoc;
     public int soTinChi;
+    private Set<Integer> listCoursePrev;
+
 }

@@ -7,6 +7,7 @@ import lombok.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Set;
 
 @Data
 @Setter
@@ -25,6 +26,7 @@ public class ClassCourseDetailRp implements Serializable {
     private int siSo;
     private int soLuongDaDangKy;
     private int lecturer;
+
 //    public int classCourse;
 
 }

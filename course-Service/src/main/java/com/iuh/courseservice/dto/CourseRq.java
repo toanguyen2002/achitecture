@@ -20,4 +20,5 @@ public class CourseRq implements Serializable {
     public boolean trangThai;
     public boolean batBuoc;
     public int soTinChi;
+    private Set<Integer> listCoursePrev;
 }
