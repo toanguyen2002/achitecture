@@ -34,7 +34,7 @@ public class ClassCourseController {
         return new ResponseEntity<>(classCourseService.findAllClassCourseByCourseId(course), HttpStatus.OK);
     }
     @PostMapping("/add")
-    public ResponseEntity<ClassCourseRq> addclassCourseDetail(@RequestBody ClassCourseRq classCourseRq){
+    public ResponseEntity<ClassCourseRq> addClassCourseDetail(@RequestBody ClassCourseRq classCourseRq){
         return new ResponseEntity<>(classCourseService.addClassCourse(classCourseRq),HttpStatus.OK);
     }
 }

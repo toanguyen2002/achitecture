@@ -9,6 +9,7 @@ import com.iuh.courseservice.model.ClassCourseDetail;
 import com.iuh.courseservice.model.Lecturer;
 import com.iuh.courseservice.repository.ClassCourseDetailRepo;
 import com.iuh.courseservice.repository.ClassCourseRepo;
+import com.iuh.courseservice.repository.LecturerRepo;
 import com.netflix.discovery.converters.Auto;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
@@ -29,7 +30,9 @@ public class ClassCourseDetailService {
     @Autowired
     public ClassCourseDetailRepo courseDetailRepo;
     @Autowired
-    public EntityManager entityManager;
+    public LecturerRepo lecturerRepo;
+    @Autowired
+    public ClassCourseRepo classCourseRepo;
     public ClassCourseDetailRp mapClassCourseDetailToClassCourseDetailRp(ClassCourseDetail courseDetail){
         return ClassCourseDetailRp.builder()
                 .idClassCourseDetail(courseDetail.getIdClassCourseDetail())
@@ -48,18 +51,32 @@ public class ClassCourseDetailService {
         return courseDetailRepo.findAllByClassCourse(classCourse).stream().map(this::mapClassCourseDetailToClassCourseDetailRp).toList();
     }
 
-//    public ClassCourseDetailRq addNewClassCourseDetail(ClassCourseDetailRq ClassCourseDetailRq){
-//        ClassCourseDetail rs = ClassCourseDetail.builder()
-//                .ngayHoc(ClassCourseDetailRq.getNgayHoc())
-//                .timeHoc(ClassCourseDetailRq.getTimeHoc())
-//                .timeEnd(ClassCourseDetailRq.getTimeEnd())
-//                .siSo(ClassCourseDetailRq.getSiSo())
-//                .soLuongDaDangKy(ClassCourseDetailRq.getSoLuongDaDangKy())
-//                .lecturer(new Lecturer(ClassCourseDetailRq.getLecturer(), "", "", null))
-//                .build();
-//        courseDetailRepo.save(rs);
+    public ClassCourseDetailRq addNewClassCourseDetail(ClassCourseDetailRq classCourseDetailRq){
+
+//        System.out.println(ClassCourseDetailRq);
+        ClassCourseDetail classCourseDetail = ClassCourseDetail.builder()
+                .ngayHoc(classCourseDetailRq.getNgayHoc())
+                .timeHoc(classCourseDetailRq.getTimeHoc())
+                .timeEnd(classCourseDetailRq.getTimeEnd())
+                .siSo(classCourseDetailRq.getSiSo())
+                .soLuongDaDangKy(classCourseDetailRq.getSoLuongDaDangKy())
+                .classCourse(classCourseRepo.findById(classCourseDetailRq.getClassCourseId()).get())
+                .lecturer(lecturerRepo.findById(classCourseDetailRq.getLecturer()).get())
+                .build();
+
+        // Lưu đối tượng ClassCourseDetail mới
+
+        try {
+            ClassCourseDetail savedClassCourseDetail = courseDetailRepo.save(classCourseDetail);
+            return classCourseDetailRq;
+        } catch (Exception e) {
+            // Xử lý lỗi thất bại thao tác lưu
+            System.out.println(classCourseDetail);
+            e.printStackTrace(); // Ghi log lỗi hoặc xử lý nó một cách thích hợp
+            return null; // Hoặc ném ra một ngoại lệ tùy chỉnh
+        }
 //        return ClassCourseDetailRq;
-//    }
+    }
 
     public ClassCourseDetailRp findClassById(int id){
         Optional<ClassCourseDetail> optionalcourseDetail = courseDetailRepo.findById(id);
@@ -80,26 +97,26 @@ public class ClassCourseDetailService {
 
 //    findClassCourseDetailByTimeHo
 //   c
-    @Transactional
-    public List<Integer> getClassCourseDetailByTimeHoc(String localTime){
-        List<Integer> listrs = new ArrayList<>();
-        NativeQuery<Object[]> rs = (NativeQuery<Object[]>) entityManager.createNativeQuery("SELECT * from class_course_detail where time_hoc = '"+localTime+"'");
-        for (Object[] o : rs.getResultList()){
-            System.out.println(o[0]);
-            listrs.add((Integer) o[0]);
-        }
-        return  listrs;
-    }
+//    @Transactional
+//    public List<Integer> getClassCourseDetailByTimeHoc(String localTime){
+//        List<Integer> listrs = new ArrayList<>();
+//        NativeQuery<Object[]> rs = (NativeQuery<Object[]>) entityManager.createNativeQuery("SELECT * from class_course_detail where time_hoc = '"+localTime+"'");
+//        for (Object[] o : rs.getResultList()){
+//            System.out.println(o[0]);
+//            listrs.add((Integer) o[0]);
+//        }
+//        return  listrs;
+//    }
 
 //    findClassCourseDetailByTimeEnd
-@Transactional
-    public List<Integer> getClassCourseDetailByNgayHoc(String ngayHoc){
-        List<Integer> listrs = new ArrayList<>();
-        NativeQuery<Object[]> rs = (NativeQuery<Object[]>) entityManager.createNativeQuery("SELECT * from class_course_detail where  ngay_hoc = '"+ngayHoc+"'");
-        for (Object[] o : rs.getResultList()){
-            System.out.println(o[0]);
-            listrs.add((Integer) o[0]);
-        }
-        return listrs;
-    }
+//@Transactional
+//    public List<Integer> getClassCourseDetailByNgayHoc(String ngayHoc){
+//        List<Integer> listrs = new ArrayList<>();
+//        NativeQuery<Object[]> rs = (NativeQuery<Object[]>) entityManager.createNativeQuery("SELECT * from class_course_detail where  ngay_hoc = '"+ngayHoc+"'");
+//        for (Object[] o : rs.getResultList()){
+//            System.out.println(o[0]);
+//            listrs.add((Integer) o[0]);
+//        }
+//        return listrs;
+//    }
 }
