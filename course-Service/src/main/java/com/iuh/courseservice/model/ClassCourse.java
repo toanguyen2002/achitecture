@@ -26,4 +26,8 @@ public class ClassCourse implements Serializable {
     @JoinColumn(name = "courseId")
     private Course courseId;
 
+
+    public ClassCourse(int idClass) {
+        this.idClass = idClass;
+    }
 }

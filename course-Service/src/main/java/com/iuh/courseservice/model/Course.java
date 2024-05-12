@@ -29,4 +29,6 @@ public class Course implements Serializable {
     @CollectionTable(name = "course_prev", joinColumns=@JoinColumn(name="course_id"))
     @Column(name = "course_prev")
     private Set<Integer> listCoursePrev;
+
+
 }

@@ -25,9 +25,7 @@ public class ClassCourseDetail implements Serializable {
     @Column(name = "idCourseDetail")
     private int idClassCourseDetail;
     private String ngayHoc;
-//    @JsonFormat(timezone = "HH:mm:ss")
     private LocalTime timeHoc;
-//    @JsonFormat(timezone = "HH:mm:ss")
     private LocalTime timeEnd;
     private int siSo;
     private int soLuongDaDangKy;

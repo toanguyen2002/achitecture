@@ -16,10 +16,11 @@ import java.time.LocalTime;
 @ToString
 public class ClassCourseDetailRq {
     private String ngayHoc;
-    private String timeHoc;
-    private String timeEnd;
+    private LocalTime timeHoc;
+    private LocalTime timeEnd;
     private int siSo;
     private int soLuongDaDangKy;
+    private int classCourseId;
     private int lecturer;
 
 }
